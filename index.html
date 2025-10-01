@@ -16,9 +16,15 @@
 
 	<div class="relative z-10 pointer-events-none">
 		<button
-			class="fixed top-10 right-20 w-18 h-18 p-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto"
+			class="fixed top-10 right-20 w-12 h-12 p-1 bg-purple-300/10 hover:bg-purple-500/40 text-black rounded pointer-events-auto [box-shadow:0_0px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]"
 			id="toggleMode">
-			<img src="./pictures/lightbulb.png">
+			<img src="./pictures/lightbulb.png" class="object-fill invert">
+		</button>
+
+		<button
+			class="fixed top-28 right-20 w-12 h-12 p-1 bg-purple-300/10 hover:bg-purple-500/40 text-black rounded pointer-events-auto [box-shadow:0_0px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]"
+			id="toggleParticles">
+			<img src="./pictures/eye.svg" class="object-fill invert">
 		</button>
 
 		<div class="flex flex-1 flex-col items-center justify-center min-h-screen">
@@ -81,16 +87,12 @@
 							class="absolute left-0 -bottom-1 w-full h-[2px] bg-purple-400 [box-shadow:0_2px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]">
 						</span>
 					</h1>
-					<p class="text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-						A few things I've built recently
-					</p>
 				</div>
 
 				<!-- Project Grid -->
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<!-- Project 1: Socket Programming -->
 					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-						<img src="https://placehold.co/400x200/EEE/31343C" alt="Socket Programming in C" class="rounded mb-4">
 						<h2 class="text-2xl font-bold mb-2">Socket Programming in C</h2>
 						<p class="text-gray-400 text-sm mb-2">November 2024</p>
 						<p class="text-gray-200 mb-4">
@@ -104,7 +106,6 @@
 
 					<!-- Project 2: Portfolio Website -->
 					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-						<img src="https://placehold.co/400x200/EEE/31343C" alt="Portfolio Website" class="rounded mb-4">
 						<h2 class="text-2xl font-bold mb-2">Portfolio Website</h2>
 						<p class="text-gray-400 text-sm mb-2">September 2025 - Present</p>
 						<p class="text-gray-200 mb-4">
@@ -119,7 +120,6 @@
 
 					<!-- Project 3: Into the Nexus -->
 					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-						<img src="https://placehold.co/400x200/EEE/31343C" alt="Into the Nexus Video Game" class="rounded mb-4">
 						<h2 class="text-2xl font-bold mb-2">"Into the Nexus" Video Game</h2>
 						<p class="text-gray-400 text-sm mb-2">Software Engineering 1 & 2</p>
 						<p class="text-gray-200 mb-4">

@@ -250,40 +250,44 @@ export async function initShader(elementId) {
 
 	const clock = new THREE.Clock();
 
+	let particlesOn = true;
+	let animationId = null;
+
 	let frame = 0;
 	function animate() {
-		const t = clock.getElapsedTime();
-		const dt = Math.max(clock.getDelta(), 0.016); // Cap at 60fps
-		// const dt = clock.getDelta(); // Cap at 60fps
+		if (!particlesOn) { return; }
+			const t = clock.getElapsedTime();
+			const dt = Math.max(clock.getDelta(), 0.016); // Cap at 60fps
+			// const dt = clock.getDelta(); // Cap at 60fps
 
 
-		compute_mat.uniforms.u_mousePrev.value.copy(mousePrev);
-		compute_mat.uniforms.u_mouse.value.copy(mouseCurrent);
-		compute_mat.uniforms.u_prevState.value = rtP.texture;
-		compute_mat.uniforms.u_deltaTime.value = dt;
+			compute_mat.uniforms.u_mousePrev.value.copy(mousePrev);
+			compute_mat.uniforms.u_mouse.value.copy(mouseCurrent);
+			compute_mat.uniforms.u_prevState.value = rtP.texture;
+			compute_mat.uniforms.u_deltaTime.value = dt;
 
-		renderer.setRenderTarget(rtC);
-		renderer.render(compute_scene, compute_camera);
+			renderer.setRenderTarget(rtC);
+			renderer.render(compute_scene, compute_camera);
 
-		point_mat.uniforms.u_state.value = rtC.texture;
-		renderer.setRenderTarget(null);
+			point_mat.uniforms.u_state.value = rtC.texture;
+			renderer.setRenderTarget(null);
 
-		// display_material.uniforms.u_time.value = t;
-		// display_material.uniforms.u_deltaTime.value = dt;
+			// display_material.uniforms.u_time.value = t;
+			// display_material.uniforms.u_deltaTime.value = dt;
 
-		renderer.render(display_scene, display_camera);
+			renderer.render(display_scene, display_camera);
 
-		mousePrev.copy(mouseCurrent);
+			mousePrev.copy(mouseCurrent);
 
-		frame += 1;
-		// console.log(frame / t);
+			frame += 1;
+			// console.log(frame / t);
 
-		[rtC, rtP] = [rtP, rtC];
-		requestAnimationFrame(animate);
+			[rtC, rtP] = [rtP, rtC];
+
+			animationId = requestAnimationFrame(animate);
 	}
 
 	animate();
-
 
 	// Resize handling
 	new ResizeObserver(() => {
@@ -399,6 +403,23 @@ export async function initShader(elementId) {
 		lightsOn = !lightsOn;
 		point_mat.uniforms.u_coldColor.value = coldColor;
 		point_mat.uniforms.u_warmColor.value = warmColor;
+	});
+
+	document.getElementById("toggleParticles").addEventListener("click", () => {
+		particlesOn = !particlesOn;
+
+		console.log("in");
+
+		if (particlesOn) {
+		console.log("on");
+			animate();
+		} else {
+			if(animationId){
+				cancelAnimationFrame(animationId);
+		console.log("cn");
+			}
+			renderer.clear();
+		}
 	});
 }
 
