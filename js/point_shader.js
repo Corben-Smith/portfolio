@@ -1,6 +1,6 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
-export async function initShader(elementId){
+export async function initShader(elementId) {
 	//get element, width, height
 	const element = document.getElementById(elementId);
 	let screen_width = element.clientWidth;
@@ -10,11 +10,11 @@ export async function initShader(elementId){
 	//create renderer, set size, append to dom
 	const renderer = new THREE.WebGLRenderer();
 	renderer.setSize(screen_width, screen_height);
-	renderer.setPixelRatio( window.devicePixelRatio );
-// renderer.setAnimationLoop( animate );
+	renderer.setPixelRatio(window.devicePixelRatio);
+	// renderer.setAnimationLoop( animate );
 
 	element.appendChild(renderer.domElement);
-	
+
 	const gl = renderer.getContext();
 	const floatExtension = gl.getExtension('OES_texture_float') || gl.getExtension('EXT_color_buffer_float');
 	if (!floatExtension) {
@@ -23,16 +23,17 @@ export async function initShader(elementId){
 	}
 
 	//get our shaders from endpoint
-	const vertexUrl = "shaders/shader_files/vertex.glsl";
-	const fragmentUrl = "shaders/shader_files/cheat_ant_frag.glsl";
-	const computeUrl = "shaders/shader_files/cheat_ant_sim.glsl";
+	const vertexUrl = "./shaders/vertex.glsl";
+	const fragmentUrl = "./shaders/displayFragment.glsl";
+	const computeUrl = "./shaders/computeFragment.glsl";
+
 
 	const vertexShader = await loadShader(vertexUrl);
 	const fragmentShader = await loadShader(fragmentUrl);
 	const computeFragmentShader = await loadShader(computeUrl);
-	
-	let mouseCurrent = new THREE.Vector3(0,0,0);
-	let mousePrev = new THREE.Vector3(0,0,0);
+
+	let mouseCurrent = new THREE.Vector3(0, 0, 0);
+	let mousePrev = new THREE.Vector3(0, 0, 0);
 
 	//now i need to create everything to be rendered
 	//I need a display scene, and a compute scene
@@ -41,11 +42,11 @@ export async function initShader(elementId){
 	//the compute shader renders to a texture and that texture contains state
 	//ping pong buffer
 	//animation loop
-	
+
 
 	// const actor_count = 8000;
 	// const point_size = 3;
-	const { actor_count , point_size } = getActorCountAndPointSize();
+	const { actor_count, point_size } = getActorCountAndPointSize();
 
 	const rtOptions = {
 		minFilter: THREE.NearestFilter,
@@ -124,20 +125,20 @@ export async function initShader(elementId){
 	const compute_mat = new THREE.ShaderMaterial({
 		vertexShader: computeVertexShader,
 		fragmentShader: computeFragmentShader,
-		uniforms:{
+		uniforms: {
 			u_prevState: { value: rtA.texture },
-			u_screenResolution : { value: new THREE.Vector2(screen_width, screen_height) },
-			u_deltaTime : { value: 0.016 },
+			u_screenResolution: { value: new THREE.Vector2(screen_width, screen_height) },
+			u_deltaTime: { value: 0.016 },
 			u_mouse: { value: new THREE.Vector3(0, 0, 0) },
 			u_mousePrev: { value: new THREE.Vector3(0, 0, 0) },
-			u_influence : { value: .5 },
-			u_range : { value: 0.15 },
+			u_influence: { value: .5 },
+			u_range: { value: 0.15 },
 			u_count: { value: actor_count },
 			u_pointSize: { value: point_size },
 		}
 	});
 
-	const compute_geometry = new THREE.PlaneGeometry(2,2);
+	const compute_geometry = new THREE.PlaneGeometry(2, 2);
 	const compute_mesh = new THREE.Mesh(compute_geometry, compute_mat);
 	const compute_scene = new THREE.Scene();
 	compute_scene.add(compute_mesh);
@@ -145,19 +146,19 @@ export async function initShader(elementId){
 	// const compute_camera = new THREE.OrthographicCamera(0.0, actor_count, -0.5, 0.5, 0.1, 10);
 	const compute_camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 	compute_camera.position.z = 1;
-	
+
 
 	const buffer_geometry = new THREE.BufferGeometry();
 
 	const indices = new Float32Array(actor_count);
 	for (let i = 0; i < actor_count; i++) {
-			indices[i] = i;  // Each particle gets its ID
+		indices[i] = i;  // Each particle gets its ID
 	}
 	buffer_geometry.setAttribute('a_index', new THREE.BufferAttribute(indices, 1));
 
 	const vertices = new Float32Array(actor_count * 3);
 	for (let i = 0; i < actor_count * 3; i++) {
-			vertices[i] = 0.0;
+		vertices[i] = 0.0;
 	}
 	buffer_geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
@@ -208,7 +209,7 @@ export async function initShader(elementId){
 		}
 	});
 
-	const particles_mesh = new THREE.Points( buffer_geometry, point_mat ); 
+	const particles_mesh = new THREE.Points(buffer_geometry, point_mat);
 	const display_scene = new THREE.Scene();
 	display_scene.add(particles_mesh);
 
@@ -231,7 +232,7 @@ export async function initShader(elementId){
 	);
 
 	display_camera.position.z = 1;
-	
+
 	// display_camera.position.set(0, 0, 2000);
 	let rtP = rtA;
 	let rtC = rtB;
@@ -240,23 +241,23 @@ export async function initShader(elementId){
 	// compute_mat.uniforms.u_prevState.value = rtP.texture;
 	// renderer.setRenderTarget(rtC);
 	// renderer.render(compute_scene, compute_camera);
-  //
+	//
 	// point_mat.uniforms.u_state.value = rtC.texture;
 	// renderer.setRenderTarget(null);
 	// renderer.clear();
 
 	// renderer.render(display_scene, display_camera);
 	// renderer.render(init_scene, initCamera);
-	
+
 	const clock = new THREE.Clock();
 
 	let frame = 0;
-	function animate(){
+	function animate() {
 		const t = clock.getElapsedTime();
-		const dt = Math.max(clock.getDelta(), 0.016 ); // Cap at 60fps
+		const dt = Math.max(clock.getDelta(), 0.016); // Cap at 60fps
 		// const dt = clock.getDelta(); // Cap at 60fps
 
-		
+
 		compute_mat.uniforms.u_mousePrev.value.copy(mousePrev);
 		compute_mat.uniforms.u_mouse.value.copy(mouseCurrent);
 		compute_mat.uniforms.u_prevState.value = rtP.texture;
@@ -285,9 +286,9 @@ export async function initShader(elementId){
 	animate();
 
 
-		// Resize handling
+	// Resize handling
 	new ResizeObserver(() => {
-		const newscreen_width= element.clientWidth;
+		const newscreen_width = element.clientWidth;
 		const newscreen_height = element.clientHeight;
 
 		if (newscreen_width === screen_width && newscreen_height === newscreen_height) return; // Skip if no change
@@ -379,7 +380,7 @@ export async function initShader(elementId){
 		const y = -(((touch.clientY - rect.top) / rect.height) * 2 - 1);
 
 		updateMouse(x, y, 1);
-	}, {passive: true});
+	}, { passive: true });
 
 	element.addEventListener("touchend", e => {
 		leftPressed = false; // reset like mouseup
@@ -388,10 +389,10 @@ export async function initShader(elementId){
 
 	let lightsOn = true;
 	document.getElementById("toggleMode").addEventListener("click", () => {
-		if(!lightsOn){
+		if (!lightsOn) {
 			coldColor = new THREE.Vector3(0., 0., 0.);
 			warmColor = new THREE.Vector3(1., 0.5, 1.);
-		}else{
+		} else {
 			coldColor = new THREE.Vector3(.25, .125, .5);
 			warmColor = new THREE.Vector3(1., 0.5, 1.);
 		}
@@ -416,28 +417,28 @@ function randFloat(min, max) {
 }
 
 function getActorCountAndPointSize() {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const area = width * height;
+	const width = window.innerWidth;
+	const height = window.innerHeight;
+	const area = width * height;
 
-  // Define min/max area for scaling
-  const minArea = 320 * 480;    // small phone
-  const maxArea = 1920 * 1080;  // desktop
+	// Define min/max area for scaling
+	const minArea = 320 * 480;    // small phone
+	const maxArea = 1920 * 1080;  // desktop
 
-  // normalized factor 0 → 1
-  const t = Math.min(Math.max((area - minArea) / (maxArea - minArea), 0), 1);
+	// normalized factor 0 → 1
+	const t = Math.min(Math.max((area - minArea) / (maxArea - minArea), 0), 1);
 
-  // actor count: small screens → few, large screens → many
-  const minCount = 800;
-  const maxCount = 8000;
-  const actor_count = Math.round(minCount + t * (maxCount - minCount));
+	// actor count: small screens → few, large screens → many
+	const minCount = 800;
+	const maxCount = 8000;
+	const actor_count = Math.round(minCount + t * (maxCount - minCount));
 
-  // point size: small screens → larger points, large screens → smaller points
-  const minPoint = 3;  // min size on large screens
-  const maxPoint = 5;  // max size on small screens
-  const point_size = Math.round(maxPoint - t * (maxPoint - minPoint));
+	// point size: small screens → larger points, large screens → smaller points
+	const minPoint = 3;  // min size on large screens
+	const maxPoint = 5;  // max size on small screens
+	const point_size = Math.round(maxPoint - t * (maxPoint - minPoint));
 
-  console.log({ width, height, t, actor_count, point_size });
+	console.log({ width, height, t, actor_count, point_size });
 
-  return { actor_count, point_size };
+	return { actor_count, point_size };
 }
