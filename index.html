@@ -13,111 +13,108 @@
 	<div class="fixed inset-0 z-0">
 		<div id="shaderpane" class="w-full h-full resize overflow-hidden"></div>
 	</div>
-	<button
-		class="fixed top-10 right-10 w-12 h-12 p-2 bg-white text-black hover:bg-gray-400 rounded z-20"
-		id="toggleMode">
-		<img src="/icons/lightbulb.png" alt="Toggle Mode" class="w-full h-full object-contain">
-	</button>
 
+	<div class="relative z-10 pointer-events-none">
+		<button
+			class="fixed top-10 right-20 w-18 h-18 p-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto"
+			id="toggleMode">
+			<img src="./pictures/lightbulb.png">
+		</button>
 
-	<section id="hero" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-8">
-		<!-- Text block -->
-		<div class="flex-1 text-left mb-8 md:mb-0 md:pr-12">
-			<h1 class="text-6xl font-bold mb-4 drop-shadow-lg">
-				Hello,<br>
-				I'm Corben Smith
-			</h1>
-			<p class="text-2xl drop-shadow-md">
-				Passionate developer and soon-to-be Information Systems graduate at ETSU
-			</p>
-			<div class="mt-6 flex gap-4">
-				<button class="px-6 py-3 bg-white text-black hover:bg-gray-400 rounded">
-					About Me
-				</button>
-				<button class="px-6 py-3 bg-white text-black hover:bg-gray-400 rounded">
-					Resume
-				</button>
+		<div class="flex flex-1 flex-col items-center justify-center min-h-screen">
+			<div
+				class="min-h-[95vh] flex flex-col md:flex-row justify-evenly items-center mt-6 md:mt-6 flex-1 text-white px-8 w-[90vw]">
+				<div class="text-left">
+					<h1
+						class="w-full text-6xl md:text-6xl text-left font-bold mb-4 drop-shadow-[2px_2px_2px_rgba(255,255,255,0.8)]">
+						Hello, <br>
+						I'm Corben Smith
+					</h1>
+					<p class="text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+						Passionate Developer and soon to Information Systems graduate at ETSU
+					</p>
+					<button class="mt-6 px-6 py-3 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto"
+						onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'})">
+						About Me
+					</button>
+				</div>
+
+				<img class="w-full max-w-[30vw] md:max-w-[40vw] h-auto rounded" src="./pictures/headshot.png"
+					alt="Corben Smith">
+
 			</div>
-		</div>
+			<div id="about" class="relative min-h-[95vh] text-white px-8 w-[90vw]">
+				<div class="text-left">
+					<h1 class="relative w-fit pr-12 text-6xl text-left font-bold my-4">
+						About Me
+						<span
+							class="absolute left-0 -bottom-1 w-full h-[2px] bg-purple-400 [box-shadow:0_2px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]"></span>
+					</h1>
+					<p class="text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+						About section
+					</p>
+					<button
+						class="absolute bottom-20 right-20 mt-6 px-6 py-3 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto"
+						onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'})">
+						Projects
+					</button>
+				</div>
+			</div>
+			<div id="projects" class="relative min-h-[95vh] text-white px-8 w-[90vw]">
+				<div class="text-left mb-12">
+					<h1 class="relative inline-block text-6xl text-left font-bold mb-6">
+						Projects
+						<span
+							class="absolute left-0 -bottom-1 w-full h-[2px] bg-purple-400 [box-shadow:0_2px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]">
+						</span>
+					</h1>
+					<p class="text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+						A few things I’ve built recently
+					</p>
+				</div>
 
-		<!-- Image block -->
-		<div class="flex-1 flex justify-center md:justify-end">
-			<img src="./pictures/headshot.webp" alt="Corben Smith" class="w-[70%] max-w-[500px] h-auto rounded shadow-lg">
-		</div>
-	</section>
+				<!-- Project Grid -->
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<!-- Project 1 -->
+					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
+						<img src="https://placehold.co/400x200/EEE/31343C" alt="Project 1" class="rounded mb-4">
+						<h2 class="text-2xl font-bold mb-2">Particle Simulator and This Website</h2>
+						<p class="text-gray-200 mb-4">
+							I have spent roughly one month writing the code to run a particle simulator in WebGL. The background of
+							thsi:
+						</p>
+						<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
+							View More
+						</button>
+					</div>
 
-	<div id="about" class="relative min-h-[95vh] text-white px-8 w-[90vw]">
-		<div class="text-left">
-			<h1 class="relative w-fit pr-12 text-6xl text-left font-bold my-4">
-				About Me
-				<span
-					class="absolute left-0 -bottom-1 w-full h-[2px] bg-purple-400 [box-shadow:0_2px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]"></span>
-			</h1>
-			<p class="text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-				About section
-			</p>
-			<button
-				class="absolute bottom-20 right-20 mt-6 px-6 py-3 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto"
-				onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'})">
-				Projects
-			</button>
-		</div>
-	</div>
-	<div id="projects" class="relative min-h-[95vh] text-white px-8 w-[90vw]">
-		<div class="text-left mb-12">
-			<h1 class="relative inline-block text-6xl text-left font-bold mb-6">
-				Projects
-				<span
-					class="absolute left-0 -bottom-1 w-full h-[2px] bg-purple-400 [box-shadow:0_2px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]">
-				</span>
-			</h1>
-			<p class="text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-				A few things I’ve built recently
-			</p>
-		</div>
+					<!-- Project 2 -->
+					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
+						<img src="https://placehold.co/400x200/EEE/31343C" alt="Project 2" class="rounded mb-4">
+						<h2 class="text-2xl font-bold mb-2">Project Two</h2>
+						<p class="text-gray-200 mb-4">
+							Short description of your project. Highlight tech stack or problem solved.
+						</p>
+						<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
+							View More
+						</button>
+					</div>
 
-		<!-- Project Grid -->
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-			<!-- Project 1 -->
-			<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-				<img src="https://placehold.co/400x200/EEE/31343C" alt="Project 1" class="rounded mb-4">
-				<h2 class="text-2xl font-bold mb-2">Particle Simulator and This Website</h2>
-				<p class="text-gray-200 mb-4">
-					I have spent roughly one month writing the code to run a particle simulator in WebGL. The background of
-					thsi:
-				</p>
-				<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
-					View More
-				</button>
+					<!-- Project 3 -->
+					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
+						<img src="https://placehold.co/400x200/EEE/31343C" alt="Project 3" class="rounded mb-4">
+						<h2 class="text-2xl font-bold mb-2">Project Three</h2>
+						<p class="text-gray-200 mb-4">
+							Short description of your project. Highlight tech stack or problem solved.
+						</p>
+						<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
+							View More
+						</button>
+					</div>
+				</div>
 			</div>
 
-			<!-- Project 2 -->
-			<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-				<img src="https://placehold.co/400x200/EEE/31343C" alt="Project 2" class="rounded mb-4">
-				<h2 class="text-2xl font-bold mb-2">Project Two</h2>
-				<p class="text-gray-200 mb-4">
-					Short description of your project. Highlight tech stack or problem solved.
-				</p>
-				<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
-					View More
-				</button>
-			</div>
-
-			<!-- Project 3 -->
-			<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-				<img src="https://placehold.co/400x200/EEE/31343C" alt="Project 3" class="rounded mb-4">
-				<h2 class="text-2xl font-bold mb-2">Project Three</h2>
-				<p class="text-gray-200 mb-4">
-					Short description of your project. Highlight tech stack or problem solved.
-				</p>
-				<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
-					View More
-				</button>
-			</div>
 		</div>
-	</div>
-
-	</div>
 </body>
 <script type="module">
 	import {initShader} from '/js/point_shader.js';
