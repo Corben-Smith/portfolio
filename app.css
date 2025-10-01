@@ -424,6 +424,9 @@
   .max-w-7xl {
     max-width: var(--container-7xl);
   }
+  .max-w-\[400px\] {
+    max-width: 400px;
+  }
   .flex-1 {
     flex: 1;
   }
@@ -771,6 +774,11 @@
       width: 40vw;
     }
   }
+  .md\:max-w-\[300px\] {
+    @media (width >= 48rem) {
+      max-width: 300px;
+    }
+  }
   .md\:grid-cols-3 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -997,3 +1005,4 @@
     }
   }
 }
+
