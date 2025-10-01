@@ -7,7 +7,6 @@ export async function initShader(elementId) {
 	let screen_height = element.clientHeight;
 
 
-	//create renderer, set size, append to dom
 	const renderer = new THREE.WebGLRenderer();
 	renderer.setSize(screen_width, screen_height);
 	renderer.setPixelRatio(window.devicePixelRatio);
