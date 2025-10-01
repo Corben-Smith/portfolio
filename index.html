@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="scroll-smooth md:scroll-auto">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +22,6 @@
 		</button>
 
 		<div class="flex flex-1 flex-col items-center justify-center min-h-screen">
-
-			<!-- Starting section -->
 			<div
 				class="min-h-[95vh] flex flex-col md:flex-row justify-evenly items-center mt-6 md:mt-6 flex-1 text-white px-8 w-[90vw]">
 				<div class="text-left">
@@ -39,7 +38,8 @@
 						About Me
 					</button>
 				</div>
-				<img class="w-[80vw] md:w-[40vw]" src="./pictures/headshot.png">
+				<img class="w-full max-w-[400px] md:max-w-[300px] h-auto rounded" src="./pictures/headshot.png"
+					alt="Corben Smith">
 			</div>
 			<div id="about" class="relative min-h-[95vh] text-white px-8 w-[90vw]">
 				<div class="text-left">
@@ -115,17 +115,18 @@
 		</div>
 </body>
 <script type="module">
-    import { initShader } from '/js/point_shader.js';
+	import {initShader} from '/js/point_shader.js';
 
-	  window.addEventListener('load', async () => {
-			const shaderObjects = await initShader('shaderpane');
-			document.getElementById('shaderpane').style.opacity = 1;
-		});
+	window.addEventListener('load', async () => {
+		const shaderObjects = await initShader('shaderpane');
+		document.getElementById('shaderpane').style.opacity = 1;
+	});
 </script>
 <style>
-#shaderpane {
-  opacity: 0;
-  transition: opacity 0.5s ease-in;
-}
+	#shaderpane {
+		opacity: 0;
+		transition: opacity 0.5s ease-in;
+	}
 </style>
+
 </html>
