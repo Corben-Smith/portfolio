@@ -115,8 +115,17 @@
 		</div>
 </body>
 <script type="module">
-	import {initShader} from './js/point_shader.js';
+    import { initShader } from '/js/point_shader.js';
 
-	const shaderObjects = await initShader('shaderpane');
+	  window.addEventListener('load', async () => {
+			const shaderObjects = await initShader('shaderpane');
+			document.getElementById('shaderpane').style.opacity = 1;
+		});
 </script>
+<style>
+#shaderpane {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+</style>
 </html>
