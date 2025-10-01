@@ -1,0 +1,10 @@
+# Node stuff
+node_modules/
+package-lock.json
+package.json
+
+# Tailwind build output (optional if you want to commit app.css)
+input.css
+
+# Logs
+npm-debug.log*
