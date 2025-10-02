@@ -210,6 +210,12 @@
   .top-28 {
     top: calc(var(--spacing) * 28);
   }
+  .right-12 {
+    right: calc(var(--spacing) * 12);
+  }
+  .right-16 {
+    right: calc(var(--spacing) * 16);
+  }
   .right-20 {
     right: calc(var(--spacing) * 20);
   }
@@ -289,6 +295,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
@@ -315,6 +324,9 @@
   }
   .flex-1 {
     flex: 1;
+  }
+  .grow {
+    flex-grow: 1;
   }
   .resize {
     resize: both;
