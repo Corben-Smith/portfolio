@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html class="scroll-smooth md:scroll-auto">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Corben Smith</title>
 	<link rel="stylesheet" href="./app.css">
-	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
-<body class="w-screen min-h-screen bg-black">
+<body class="font-(font-family: w-screen min-h-screen bg-black">
 	<div class="fixed inset-0 z-0">
 		<div id="shaderpane" class="w-full h-full resize overflow-hidden"></div>
 	</div>
 
 	<div class="relative z-10 pointer-events-none">
 		<button
-			class="fixed top-10 right-20 w-12 h-12 p-1 bg-purple-300/10 hover:bg-purple-500/40 text-black rounded pointer-events-auto [box-shadow:0_0px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]"
+			class="fixed top-10 right-20 w-12 h-12 p-1 bg-purple-300/10 hover:bg-purple-500/40 text-black rounded pointer-events-auto [box-shadow:0_0px_4px_rgba(168,85,247,1),0px_0px_8px_rgba(168,85,247,1)]"
 			id="toggleMode">
 			<img src="./pictures/lightbulb.png" class="object-fill invert">
 		</button>
 
 		<button
-			class="fixed top-28 right-20 w-12 h-12 p-1 bg-purple-300/10 hover:bg-purple-500/40 text-black rounded pointer-events-auto [box-shadow:0_0px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]"
+			class="fixed top-28 right-20 w-12 h-12 p-1 bg-purple-300/10 hover:bg-purple-500/40 text-black rounded pointer-events-auto [box-shadow:0_0px_4px_rgba(168,85,247,1),0px_0px_8px_rgba(168,85,247,1)]"
 			id="toggleParticles">
 			<img src="./pictures/eye.svg" class="object-fill invert">
 		</button>
 
 		<div class="flex flex-1 flex-col items-center justify-center min-h-screen">
 			<!-- Starting section -->
-			<div
-				id="start"
+			<div id="start"
 				class="min-h-[95vh] flex flex-col md:flex-row justify-evenly items-center flex-1 text-white px-2 md:px-8 w-[90vw]">
 				<div class="text-left">
 					<h1
@@ -39,11 +36,15 @@
 						I'm Corben Smith
 					</h1>
 					<p class="text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-						Passionate Developer and Soon to Information Systems graduate at ETSU
+						Passionate Developer and Soon to Information Systems Graduate at ETSU
 					</p>
-					<button class="mt-6 px-6 py-3 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto"
+					<button class="mt-6 px-16 mr-8 py-3 bg-purple-300/10 hover:bg-purple-500/40 text-white pointer-events-auto rounded-lg [box-shadow:0_0px_4px_rgba(168,85,247,1),0px_0px_8px_rgba(168,85,247,1)]"
 						onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'})">
 						About Me
+					</button>
+					<button class="mt-6 px-16 mr-8 py-3 bg-purple-300/10 hover:bg-purple-500/40 text-white pointer-events-auto rounded-lg [box-shadow:0_0px_4px_rgba(168,85,247,1),0px_0px_8px_rgba(168,85,247,1)]"
+						id="downloadResume" onclick="window.open('./corben_smith_resume.pdf', '_blank')">
+						Resume
 					</button>
 				</div>
 				<img class="w-full max-w-[60vw] md:max-w-[30vw] h-auto rounded" src="./pictures/headshot.png"
@@ -90,46 +91,36 @@
 				</div>
 
 				<!-- Project Grid -->
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-					<!-- Project 1: Socket Programming -->
-					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-						<h2 class="text-2xl font-bold mb-2">Socket Programming in C</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="bg-purple-300/10 rounded-2xl p-6 shadow-lg  hover:shadow-purple-500/40 transition">
+						<h2 class="text-2xl font-bold mb-1">Socket Programming in C</h2>
 						<p class="text-gray-400 text-sm mb-2">November 2024</p>
-						<p class="text-gray-200 mb-4">
-							I set out to create a simple HTTP server using only web sockets in C. It was a fun experience and working
-							on that project taught me a lot about low level networking.
+						<p class="text-gray-200 mb-4 whitespace-pre-line">I set out to create a simple HTTP server using only web
+							sockets in C.
+							It was a fun experience and working on that project taught me a lot about low level networking.
 						</p>
-						<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
-							View More
-						</button>
 					</div>
 
 					<!-- Project 2: Portfolio Website -->
-					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-						<h2 class="text-2xl font-bold mb-2">Portfolio Website</h2>
+					<div class="bg-purple-300/10 rounded-2xl p-6 shadow-lg  hover:shadow-purple-500/40 transition">
+						<h2 class="text-2xl font-bold mb-1">Portfolio Website</h2>
 						<p class="text-gray-400 text-sm mb-2">September 2025 - Present</p>
-						<p class="text-gray-200 mb-4">
-							I have been working on creating a portfolio website. I created it with HTML and Tailwindcss. The visual
-							effect in the background was achieved with a combination of shaders and Three.js. I am proud of what I
-							have so far, and I plan on expanding the website with a blog section.
+						<p class="text-gray-200 mb-4 whitespace-pre-line">I have been working on creating a portfolio website.
+							I created it with HTML and Tailwindcss. The visual effect in the background was achieved with a
+							combination of shaders and Three.js.
+							I am proud of what I have so far, and I plan on expanding the website with a blog section.
 						</p>
-						<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
-							View More
-						</button>
 					</div>
 
 					<!-- Project 3: Into the Nexus -->
-					<div class="bg-black/40 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
-						<h2 class="text-2xl font-bold mb-2">"Into the Nexus" Video Game</h2>
+					<div class="bg-purple-300/10 rounded-2xl p-6 shadow-lg  hover:shadow-purple-500/40 transition">
+						<h2 class="text-2xl font-bold mb-1">"Into the Nexus" Video Game</h2>
 						<p class="text-gray-400 text-sm mb-2">Software Engineering 1 & 2</p>
-						<p class="text-gray-200 mb-4">
-							During my Software Engineering 1 and 2 classes, I was tasked to create an RPG game with 4 other team
+						<p class="text-gray-200 mb-4 whitespace-pre-line">During my Software Engineering 1 and 2 classes, I was
+							tasked to create an RPG game with 4 other team
 							members. We worked in Godot and created a healthy amount of content during the two semesters. I worked as
 							a scrum master during this project.
 						</p>
-						<button class="mt-auto px-4 py-2 bg-white text-black hover:bg-gray-400 rounded pointer-events-auto">
-							View More
-						</button>
 					</div>
 				</div>
 				<button
@@ -218,8 +209,8 @@
 						that involved working with web sockets in C, and I was struggling to find resources.
 						Thankfully, I found this guide:
 						<a href="https://beej.us/guide/bgnet/html/split/"
-							class="text-blue-500 underline hover:no-underline hover:-text-blue-700 pointer-events-auto">Beej's Guide
-							to Network Programming</a>
+							class="text-blue-500 underline hover:no-underline hover:-text-blue-700 pointer-events-auto">Beej's Guideto
+							Network Programming</a>
 						Ever since I read this guide and looked at this guy's other work, I have wanted to create educational
 						content about programming online.
 						I plan to have a section on my website where I post essays/blog posts about the things I'm learning.
