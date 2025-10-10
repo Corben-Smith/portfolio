@@ -257,6 +257,7 @@ export async function initShader(elementId) {
 	function animate() {
 		if (!particlesOn) { return; }
 			const t = clock.getElapsedTime();
+
 			const dt = Math.max(clock.getDelta(), 0.016); // Cap at 60fps
 			// const dt = clock.getDelta(); // Cap at 60fps
 
