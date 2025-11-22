@@ -223,9 +223,6 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
-  .top-0 {
-    top: calc(var(--spacing) * 0);
-  }
   .top-10 {
     top: calc(var(--spacing) * 10);
   }
@@ -314,17 +311,11 @@
     width: calc(var(--spacing) * 6);
     height: calc(var(--spacing) * 6);
   }
-  .h-0 {
-    height: calc(var(--spacing) * 0);
-  }
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
   .h-\[2px\] {
     height: 2px;
-  }
-  .h-\[30vh\] {
-    height: 30vh;
   }
   .h-\[50vh\] {
     height: 50vh;
@@ -337,6 +328,9 @@
   }
   .h-full {
     height: 100%;
+  }
+  .min-h-\[50vh\] {
+    min-height: 50vh;
   }
   .min-h-\[70vh\] {
     min-height: 70vh;
@@ -558,9 +552,6 @@
   }
   .pb-10 {
     padding-bottom: calc(var(--spacing) * 10);
-  }
-  .pb-\[56\.25\%\] {
-    padding-bottom: 56.25%;
   }
   .text-center {
     text-align: center;
