@@ -43,9 +43,10 @@
 						About Me
 					</button>
 					<button class="text-xl mt-6 px-16 mr-8 py-3 glow-button"
-						id="downloadResume" onclick="window.open('./corben_smith_resume.pdf', '_blank')">
-						Resume
+									onclick="document.getElementById('resume').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'});">
+							Resume
 					</button>
+
 				</div>
 				<img class="w-full max-w-[60vw] md:max-w-[30vw] h-auto rounded" src="./pictures/headshot.png"
 					alt="Corben Smith">
@@ -93,7 +94,7 @@
 						<p class="text-gray-400 text-sm mb-2">November 2024</p>
 						<p class="text-gray-200 mb-4 whitespace-pre-line">I set out to create a simple HTTP server using only web sockets in C.
 							It was a fun experience and working on that project taught me a lot about low level networking.
-							I want to try my hand at lower level programming again at somepoint. I think next up would be a disassembler.
+							I want to try my hand at lower level programming again at some point. I think next up would be a disassembler.
 						</p>
 					</div>
 
@@ -102,7 +103,7 @@
 						<h2 class="text-2xl font-bold mb-1">Portfolio Website</h2>
 						<p class="text-gray-400 text-sm mb-2">September 2025 - Present</p>
 						<p class="text-gray-200 mb-4 whitespace-pre-line">I have been working on creating a portfolio website.
-							I created it with HTML and Tailwindcss. The visual effect in the background was achieved with a combination of shaders and Three.js.
+							I created it with HTML and TailwindCSS. The visual effect in the background was achieved with a combination of shaders and Three.js.
 							I am proud of what I have so far, and I plan on expanding the website with a blog section.
 
 							Hint - Try left clicking, right clicking, and both at the same time.
@@ -116,15 +117,17 @@
 						<p class="text-gray-200 mb-4 whitespace-pre-line">During my Software Engineering 1 and 2 classes, I was tasked to create an RPG game with 4 other team members. We worked in Godot and created a healthy amount of content during the two semesters.
 						I also worked as a scrum master during this project.
 						I saw a lot of personal and professional growth due to this project. It has made me be more self reflective when working with others.
+						<a href="https://github.com/Corben-Smith/se_game" class="text-blue-500 underline hover:no-underline hover:-text-blue-700 pointer-events-auto">Github Link</a>
 						</p>
 					</div>
 				<div class="bg-purple-300/10 rounded-2xl p-6 shadow-lg  hover:shadow-purple-500/40 transition"> <h2 class="text-2xl font-bold mb-1">D&D Virtual Tabletop with React</h2>
 					<p class="text-gray-400 text-sm mb-2">May 2024</p>
 					<p class="text-gray-200 mb-4 whitespace-pre-line">A friend and I created a Virtual Tabletop for playing games like D&D.
-					I learned a lot working on this project, It was my first exposure to JavaScipt, Tailwindcss, React, and Git. 
+					I learned a lot working on this project, It was my first exposure to JavaScipt, TailwindCSS, React, and Git. 
 					This was also my first time working with another person to create something.
 					I was responsible for creating the actual tabletop the users would move on. While my teammate created the forms for setting up boards.
 					Overall, A very fun project that I learned a lot about collaboration during.
+					<a href="https://github.com/Corben-Smith/Roll24" class="text-blue-500 underline hover:no-underline hover:-text-blue-700 pointer-events-auto">Github Link</a>
 					</p>
 				</div>
 				</div>
@@ -180,7 +183,7 @@
 						<p class="text-gray-400 text-sm mb-4">January 2025 - May 2025</p>
 						<ul class="list-disc list-inside text-gray-200 space-y-2">
 							<li>Worked to modernize legacy scripts in BCBST systems</li>
-							<li>Learned about the EDI systems and lifecycle of claims</li>
+							<li>Learned about the EDI systems and life cycle of a claim</li>
 						</ul>
 					</div>
 
@@ -251,10 +254,51 @@
 				</div>
 				<button
 					class="hidden md:block absolute bottom-20 right-20 mt-6 px-6 py-3 glow-button"
+					onclick="document.getElementById('finalProject').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'})">
+					Final Project
+				</button>
+			</div>
+
+			<div id="finalproj" class="relative min-h-[70vh] text-white px-8 w-[90vw]">
+				<div class="text-left mb-12">
+					<h1 class="relative inline-block pt-8 md:pt-0 text-6xl text-left font-bold my-4">
+							Internship Final Papers
+						<span
+							class="absolute left-0 -bottom-1 w-full h-[2px] bg-purple-400 [box-shadow:0_2px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]">
+						</span>
+					</h1>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<!-- Languages -->
+					<div class="bg-purple-300/10 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
+						<h2 class="text-2xl font-bold mb-4">Internship Final Project</h2>
+						<ul class="list-disc list-inside text-gray-200 space-y-2">
+								<a href="./Smith_Corben_Internship_Final_Paper.pdf" download
+									 class="text-xl px-16 py-3 glow-button inline-block">
+										Download Final Project
+								</a>
+						</ul>
+					</div>
+						
+					<div class="bg-purple-300/10 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/40 transition">
+						<h2 class="text-2xl font-bold mb-4">Summer Internship Final Project</h2>
+						<ul class="list-disc list-inside text-gray-200 space-y-2">
+								<a href="./Smith_Corben_Final_Report.pdf" download
+									 class="text-xl px-16 py-3 glow-button inline-block">
+										Download Summer Internship Final Project
+								</a>
+						</ul>
+					</div>
+
+				</div>
+				<button
+					class="hidden md:block absolute bottom-20 right-20 mt-6 px-6 py-3 glow-button"
 					onclick="document.getElementById('future').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'})">
 					What's Next?
 				</button>
 			</div>
+
 
 
 			<div id="future" class="relative min-h-[95vh] text-white px-8 w-[90vw] mb-10">
@@ -267,7 +311,7 @@
 					<p class="text-xl md:text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] whitespace-pre-line w-[60vw] pb-10">
 						I can't say for sure where I'm going to end up.
 						Just in the past few years of my life I have changed more than I thought I was capable. 
-						And so has tech, ChatGPT released in November of 2022, and since then the world has seen a lot of change. 
+						And so has tech, ChatGPT released in November of 2018, and since then the world has seen a lot of change. 
 						So, I can't say exactly where I'll be in the future, but I have some ideas.
 
 						I want to keep learning about graphics and shader programming. There are a lot of really cool projects I could work on in that field. In that same vain, I want to learn more math. More specifically, I want to learn about linear algebra. I feel like linear algebra concepts always show up when I'm learning something new, and it can be a limiting factor.
@@ -294,6 +338,31 @@
 				</div>
 			</div>
 
+			<div id="resume" class="min-h-[95vh] text-white px-8 w-[90vw]">
+				<h1 class="relative w-fit pt-8 md:pt-0 pr-12 text-6xl text-left font-bold my-4">
+					Resume
+					<span
+						class="absolute left-0 -bottom-1 w-full h-[2px] bg-purple-400 [box-shadow:0_2px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]"></span>
+				</h1>
+				<iframe src="corben_smith_resume.pdf"
+								class="w-full h-[80vh] rounded pointer-events-auto"
+								type="application/pdf"></iframe>
+			</div>
+
+			<div id="resume" class="min-h-[95vh] text-white px-8 w-[90vw]">
+				<h1 class="relative w-fit pt-8 md:pt-0 pr-12 text-6xl text-left font-bold my-4">
+						Video Reflection
+					<span
+						class="absolute left-0 -bottom-1 w-full h-[2px] bg-purple-400 [box-shadow:0_2px_4px_rgba(168,85,247,1),0_2px_8px_rgba(168,85,247,1)]"></span>
+				</h1>
+					<iframe
+						class="rounded w-full h-[50vh] pointer-events-auto"
+						src="https://www.youtube.com/embed/5yG0LIciJnE"
+						title="YouTube video"
+						frameborder="0"
+						allowfullscreen>
+				</iframe>
+			</div>
 		</div>
 </body>
 <script type="module">
